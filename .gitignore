@@ -1,1 +1,2 @@
 .terraform/plugins/*/terraform-provider-*
+terraform.tfstate*
