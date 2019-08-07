@@ -1,5 +1,6 @@
 provider "azurerm" {
-  version = "1.31.0"
+  version = "1.32.1"
+  skip_provider_registration = true
 }
 
 provider "azuread" {
@@ -87,4 +88,6 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     client_id     = "${azuread_application.sp.application_id}"
     client_secret = "${var.client_secret}"
   }
+
+  depends_on = ["azuread_application.sp", "azuread_application_password.sp"]
 }
